@@ -16,6 +16,7 @@ A Python client for streaming API events from HPE GreenLake Network Services. Th
 - `com.hpe.greenlake.network-services.v1alpha1.wids-signatures` 
 - `com.hpe.greenlake.network-services.v1alpha1.wifi-client-locations.created`
 - `com.hpe.greenlake.network-services.v1alpha1.asset-tags.last-known-location.created`
+- `com.hpe.greenlake.network-services.v1alpha1.asset-tag-geofence-crossed`
 
 ## Requirements
 
@@ -104,6 +105,7 @@ client.create_ws_connection_with_client_decoding(access_token, endpoint)
 ├── protobuf/                 # Protocol Buffer generated files
 │   ├── __init__.py          # Package initialization
 │   ├── event_pb2.py         # Generated Protocol Buffer classes for events
+│   ├── geofence_pb2.py      # Generated Protocol Buffer classes for geofence events
 │   ├── location_pb2.py      # Generated Protocol Buffer classes for locations
 │   └── wids_pb2.py          # Generated Protocol Buffer classes for WIDS events
 ├── pyproject.toml           # Poetry configuration and dependencies
