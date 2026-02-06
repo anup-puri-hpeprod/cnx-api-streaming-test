@@ -74,6 +74,16 @@ class ApiStreamingClient:
             while True:
                 message = ws.recv()
                 print("Message recvd")
+                
+                # Handle non-binary messages
+                if not isinstance(message, bytes):
+                    if isinstance(message, str):
+                        # cases like keepalive/ping messages
+                        print(f"Received text frame: {message}")
+                    else:
+                        print(f"Received unexpected message type {type(message)}: {message}")
+                    continue
+                
                 event = event_pb2.CloudEvent()
                 event.ParseFromString(message)
                 event_kb_size = event.ByteSize() / 1024
